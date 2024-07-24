@@ -21,24 +21,18 @@
               font-weight: <weight>;
               font-style: normal;
         }
+       .past-date {
+      opacity: 0.2; /* Muy poca opacidad */
+    }
     </style>
-       <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-        calendar.render();
-      });
 
-    </script>
 </head>
-<body class="bg-white text-black">
-    <div class="container mx-auto px-4 py-6">
+<body class="bg-slate-900 text-white">
+    <div class="container mx-auto px-3 py-6">
         <div class="w-full text-center pb-5">
-            <h2 class="font-black text-6xl  text-slate-300">Barbacoa 2024</h2>
-            <p class="text-slate-300">Calendario para la barbacoa de cada viernes</p>
+            <h2 class="font-black text-6xl  text-slate-50">Barbacoa 2024</h2>
+            <p class="text-slate-200">Calendario para la barbacoa de cada viernes</p>
         </div>
         <div class="w-full py-6">
             <div class="grid grid-cols-2 gap-4"  id="container">
@@ -52,6 +46,13 @@
     <!-- Script con los datos -->
     <script>
     const data = [
+      {
+    color: 'rose',
+    name: 'Hector DJ',
+    day: '19 Julio',
+    format: 'col-span-2'
+
+  },
       {
     color: 'red',
     name: 'Luis Carlos',
@@ -201,21 +202,71 @@
 
     const container = document.getElementById('container');
 
+    // avatares aleatorios
+      function getRandomElement(arr) {
+          return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+
+    function generateAvatarUrl(name) {
+      const topTypes = ['NoHair', 'ShortHairShortCurly', 'ShortHairDreads01', 'LongHairStraight'];
+      const accessoriesTypes = ['Blank', 'Prescription01', 'Kurt'];
+      const hairColors = ['Black', 'Blonde', 'Brown', 'Auburn'];
+      const facialHairTypes = ['Blank', 'BeardMedium', 'MoustacheFancy'];
+      const clotheTypes = ['BlazerShirt', 'Hoodie', 'ShirtCrewNeck'];
+      const clotheColors = ['PastelBlue', 'Heather', 'PastelGreen'];
+      const eyeTypes = ['Happy', 'Default', 'Squint'];
+      const eyebrowTypes = ['Default', 'DefaultNatural', 'RaisedExcited'];
+      const mouthTypes = ['Smile', 'Serious', 'Disbelief'];
+      const skinColors = ['Light', 'Pale', 'Brown'];
+
+      return `https://avataaars.io/?avatarStyle=Circle&topType=${getRandomElement(topTypes)}&accessoriesType=${getRandomElement(accessoriesTypes)}&hairColor=${getRandomElement(hairColors)}&facialHairType=${getRandomElement(facialHairTypes)}&clotheType=${getRandomElement(clotheTypes)}&clotheColor=${getRandomElement(clotheColors)}&eyeType=${getRandomElement(eyeTypes)}&eyebrowType=${getRandomElement(eyebrowTypes)}&mouthType=${getRandomElement(mouthTypes)}&skinColor=${getRandomElement(skinColors)}&seed=${encodeURIComponent(name)}`;
+    }
+
+    // comprobar la fecha
+     function isPastDate(dateStr) {
+      const [day, month] = dateStr.split(' ');
+      const monthMap = {
+        'Enero': 0, 'Febrero': 1, 'Marzo': 2, 'Abril': 3,
+        'Mayo': 4, 'Junio': 5, 'Julio': 6, 'Agosto': 7,
+        'Septiembre': 8, 'Octubre': 9, 'Noviembre': 10, 'Diciembre': 11
+      };
+      const date = new Date();
+      const year = date.getFullYear();
+      const itemDate = new Date(year, monthMap[month], day);
+         console.log(itemDate);
+         console.log(date);
+         console.log(itemDate);
+
+      return itemDate < date;
+    }
+
     data.forEach(item => {
       const div = document.createElement('div');
-      div.className = `w-full h-32 drop-shadow-xl ${item.format} bg-${item.color}-400 rounded-lg px-3 py-3`;
+      div.className = `w-full h-32 drop-shadow-xl ${item.format} bg-${item.color}-400 rounded-lg px-2 py-2`;
       // div.style.backgroundColor = item.color;
       
       // Extraer el día y el mes
       const [day, month] = item.day.split(' ');
+       // Generar un avatar aleatorio usando DiceBear
+     
+    // Generar un avatar aleatorio usando Avataaars API
+      const avatarUrl = generateAvatarUrl(item.name);
+
+     // Verificar si la fecha ha pasado
+      if (isPastDate(item.day)) {
+         console.log('entro');
+        div.classList.add('past-date');
+      }
+
 
       div.innerHTML = `
-        <h1 class="w-full flex-none mb-5 text-lg leading-none text-slate-100">
-          <span class="text-4xl font-black text-white">${day}</span> ${month}
+        <h1 class="w-full flex-none mb-5 text-base leading-none text-slate-600 font-medium  ">
+          <span class="text-5xl font-black text-slate-900">${day}</span> ${month}
         </h1>
         <div class="flex items-center justify-end">
-          <p class="pr-1 text-slate-100 text-sm">${item.name}</p>
-          <img class="w-10 h-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONPqPlnrBZF9jVFcGeCOOELL-v3IPlor5fw&s" alt="Rounded avatar">
+          <p class="pr-1 text-slate-50 font-semibold text-sm">${item.name}</p>
+          <img class="w-10 h-10 rounded-full" src="${avatarUrl}" alt="Rounded avatar">
         </div>
       `;
       container.appendChild(div);
