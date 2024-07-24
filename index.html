@@ -3,10 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Barbacha</title>
+    <!-- css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+    <style type="text/css">
+        .oxanium-<uniquifier> {
+          font-family: "Oxanium", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: <weight>;
+          font-style: normal;
+        }
+            h1,h2,h3,h4{font-family: "Oxanium", sans-serif;
+              font-optical-sizing: auto;
+              font-weight: <weight>;
+              font-style: normal;
+        }
+    </style>
+       <script>
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth'
+        });
+        calendar.render();
+      });
+
+    </script>
 </head>
-<body>
-    <h1>¡Hola, mundo!</h1>
-    <p>Este es mi sitio web alojado en GitHub Pages.</p>
+<body class="bg-white text-black">
+    <div class="container mx-auto px-4 py-6">
+        <div class="w-full text-center pb-5">
+            <h2 class="font-black text-6xl  text-slate-300">Barbacoa 2024</h2>
+            <p class="text-slate-300">Calendario para la barbacoa de cada viernes</p>
+        </div>
+        <div class="w-full py-6">
+            <div class="grid grid-cols-2 gap-4"  id="container">
+                <!-- contenido de la data -->
+            </div>
+        </div>
+    
+        
+        
+    </div>
+    <!-- Script con los datos -->
+    <script>
+    const data = [
+      {
+    color: 'red',
+    name: 'Luis Carlos',
+    day: '26 Julio',
+    format: 'col-span-1'
+
+  },
+     {
+    color: 'orange',
+    name: 'Humberto Uribe',
+    day: '02 Agosto',
+    format: 'col-span-1'
+  },
+   {
+    color: 'green',
+    name: 'Jose Martinez',
+    day: '09 Agosto',
+    format: 'col-span-2'
+  },
+     {
+    color: 'cyan',
+    name: 'Ramon Velazco',
+    day: '16 Agosto',
+    format: 'col-span-1'
+  },
+   {
+    color: 'indigo',
+    name: 'Fabian Retana',
+    day: '23 Agosto',
+    format: 'col-span-1'
+  },
+
+   {
+    color: 'purple',
+    name: 'Daniel Kim',
+    day: '30 Agosto',
+    format: 'col-span-1'
+  },
+    {
+    color: 'rose',
+    name: 'Hector DJ',
+    day: '06 Septiembre',
+    format: 'col-span-1'
+  },
+    {
+    color: 'red',
+    name: 'Luis Carlos',
+    day: '13 Septiembre',
+    format: 'col-span-2'
+
+  },
+     {
+    color: 'orange',
+    name: 'Humberto Uribe',
+    day: '20 Septiembre',
+    format: 'col-span-1'
+  },
+   {
+    color: 'green',
+    name: 'Jose Martinez',
+    day: '27 Septiembre',
+    format: 'col-span-1'
+  },
+     {
+    color: 'cyan',
+    name: 'Ramon Velazco',
+    day: '04 Octubre',
+    format: 'col-span-2'
+  },
+   {
+    color: 'indigo',
+    name: 'Fabian Retana',
+    day: '11 Octubre',
+    format: 'col-span-1'
+  },
+
+   {
+    color: 'purple',
+    name: 'Daniel Kim',
+    day: '18 Octubre',
+    format: 'col-span-1'
+  },
+    {
+    color: 'rose',
+    name: 'Hector DJ',
+    day: '25 Octubre',
+    format: 'col-span-1'
+  },
+     {
+    color: 'red',
+    name: 'Luis Carlos',
+    day: '01 Noviembre',
+    format: 'col-span-1'
+
+  },
+     {
+    color: 'orange',
+    name: 'Humberto Uribe',
+    day: '08 Noviembre',
+    format: 'col-span-2'
+  },
+   {
+    color: 'green',
+    name: 'Jose Martinez',
+    day: '15 Noviembre',
+    format: 'col-span-1'
+  },
+     {
+    color: 'cyan',
+    name: 'Ramon Velazco',
+    day: '22 Noviembre',
+    format: 'col-span-1'
+  },
+   {
+    color: 'indigo',
+    name: 'Fabian Retana',
+    day: '29 Noviembre',
+    format: 'col-span-1'
+  },
+
+   {
+    color: 'purple',
+    name: 'Daniel Kim',
+    day: '06 Diciembre',
+    format: 'col-span-1'
+  },
+    {
+    color: 'rose',
+    name: 'Hector DJ',
+    day: '13 Diciembre',
+    format: 'col-span-2'
+  },
+       {
+    color: 'red',
+    name: 'Luis Carlos',
+    day: '20 Diciembre',
+    format: 'col-span-1'
+
+  },
+     {
+    color: 'orange',
+    name: 'Humberto Uribe',
+    day: '27 Diciembre',
+    format: 'col-span-1'
+  }
+    ];
+
+    const container = document.getElementById('container');
+
+    data.forEach(item => {
+      const div = document.createElement('div');
+      div.className = `w-full h-32 drop-shadow-xl ${item.format} bg-${item.color}-400 rounded-lg px-3 py-3`;
+      // div.style.backgroundColor = item.color;
+      
+      // Extraer el día y el mes
+      const [day, month] = item.day.split(' ');
+
+      div.innerHTML = `
+        <h1 class="w-full flex-none mb-5 text-lg leading-none text-slate-100">
+          <span class="text-4xl font-black text-white">${day}</span> ${month}
+        </h1>
+        <div class="flex items-center justify-end">
+          <p class="pr-1 text-slate-100 text-sm">${item.name}</p>
+          <img class="w-10 h-10 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRONPqPlnrBZF9jVFcGeCOOELL-v3IPlor5fw&s" alt="Rounded avatar">
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+    
 </body>
 </html>
