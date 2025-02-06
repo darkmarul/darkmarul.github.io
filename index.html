@@ -46,153 +46,145 @@
     <!-- Script con los datos -->
     <script>
     const data = [
-      {
+  {
     color: 'rose',
     name: 'Hector DJ',
-    day: '19 Julio',
+    day: '07 Febrero',
     format: 'col-span-2'
-
   },
-      {
+  {
     color: 'red',
     name: 'Luis Carlos',
-    day: '26 Julio',
+    day: '14 Febrero',
     format: 'col-span-1'
-
   },
-     {
+  {
     color: 'orange',
     name: 'Humberto Uribe',
-    day: '02 Agosto',
+    day: '21 Febrero',
     format: 'col-span-1'
   },
-   {
+  {
     color: 'green',
     name: 'PepeFest',
-    day: '09 Agosto',
+    day: '28 Febrero',
     format: 'col-span-2'
   },
-           {
+  {
     color: 'green',
     name: 'Jose Martinez',
-    day: '16 Agosto',
+    day: '07 Marzo',
     format: 'col-span-2'
   },
-     {
+  {
     color: 'cyan',
     name: 'Ramon Velazco',
-    day: '30 Agosto',
+    day: '21 Marzo',
     format: 'col-span-1'
   },
-   {
+  {
     color: 'indigo',
     name: 'Fabian Retana',
-    day: '06 Septiembre',
+    day: '28 Marzo',
     format: 'col-span-1'
   },
-
-   {
+  {
     color: 'purple',
     name: 'Daniel Kim',
-    day: '13 Septiembre',
+    day: '04 Abril',
     format: 'col-span-1'
   },
-    {
+  {
     color: 'rose',
     name: 'Hector DJ',
-    day: '20 Septiembre',
+    day: '11 Abril',
     format: 'col-span-1'
   },
-    {
+  {
     color: 'red',
     name: 'Luis Carlos',
-    day: '27 Septiembre',
+    day: '18 Abril',
     format: 'col-span-2'
-
   },
-     {
+  {
     color: 'orange',
     name: 'Humberto Uribe',
-    day: '04 Octubre',
+    day: '25 Abril',
     format: 'col-span-1'
   },
-   {
+  {
     color: 'green',
     name: 'Jose Martinez',
-    day: '11 Octubre',
+    day: '02 Mayo',
     format: 'col-span-1'
   },
-     {
+  {
     color: 'cyan',
     name: 'Ramon Velazco',
-    day: '18 Octubre',
+    day: '09 Mayo',
     format: 'col-span-2'
   },
-   {
+  {
     color: 'indigo',
     name: 'Fabian Retana',
-    day: '25 Octubre',
+    day: '16 Mayo',
     format: 'col-span-1'
   },
-
-   {
+  {
     color: 'purple',
     name: 'Daniel Kim',
-    day: '01 Noviembre',
+    day: '23 Mayo',
     format: 'col-span-1'
   },
-    {
+  {
     color: 'rose',
     name: 'Hector DJ',
-    day: '08 Noviembre',
+    day: '30 Mayo',
     format: 'col-span-1'
   },
-     {
+  {
     color: 'red',
     name: 'Luis Carlos',
-    day: '15 Noviembre',
+    day: '06 Junio',
     format: 'col-span-1'
-
   },
-     {
+  {
     color: 'orange',
     name: 'Humberto Uribe',
-    day: '22 Noviembre',
+    day: '13 Junio',
     format: 'col-span-2'
   },
-   {
+  {
     color: 'green',
     name: 'Jose Martinez',
-    day: '29 Noviembre',
+    day: '20 Junio',
     format: 'col-span-1'
   },
-     {
+  {
     color: 'cyan',
     name: 'Ramon Velazco',
-    day: '06 Diciembre',
+    day: '27 Junio',
     format: 'col-span-1'
   },
-   {
+  {
     color: 'indigo',
     name: 'Fabian Retana',
-    day: '13 Diciembre',
+    day: '04 Julio',
     format: 'col-span-1'
   },
-
-   {
+  {
     color: 'purple',
     name: 'Daniel Kim',
-    day: '20 Diciembre',
+    day: '11 Julio',
     format: 'col-span-1'
   },
-    {
+  {
     color: 'rose',
     name: 'Hector DJ',
-    day: '7 Diciembre',
+    day: '18 Julio',
     format: 'col-span-2'
   }
-   
-    ];
+];
 
     const container = document.getElementById('container');
 
@@ -250,7 +242,7 @@
      // Verificar si la fecha ha pasado
       if (isPastDate(item.day)) {
          console.log('entro');
-        div.classList.add('past-date');
+        div.classList.add('past-date hidden');
       }
 
 
