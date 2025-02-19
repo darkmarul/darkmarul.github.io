@@ -33,11 +33,7 @@
         <div class="w-full text-center pb-5">
             <h2 class="font-black text-6xl  text-slate-50">Barbacoa 2025</h2>
             <p class="text-slate-200">Calendario para la barbacoa de cada viernes</p>
-            <div class="w-full py-3">
-                <button id="open-modal" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Capturar hackeo
-                </button>
-            </div>
+            
         </div>
         <div class="w-full py-6">
             <div class="grid grid-cols-2 gap-4"  id="container">
@@ -49,26 +45,7 @@
         
     </div>
     <!-- Script con los datos -->
-    <script>
-    const openModalBtn = document.getElementById('open-modal');
-    const closeModalBtn = document.getElementById('close-modal');
-    const modal = document.getElementById('modal');
-
-    openModalBtn.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-    });
-
-    closeModalBtn.addEventListener('click', () => {
-        modal.classList.add('hidden');
-    });
-
-    // Cerrar modal al hacer clic fuera de él
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.add('hidden');
-        }
-    });
-</script>
+   
     <script>
     const data = [
   {
@@ -283,13 +260,6 @@
 
 
     <!-- MODAL -->
-<div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-80">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSetCCKuEUnqm7CjE_Xw9UmOfuA1PxrMbisA_f3OWWaGFwpHEQ/viewform?embedded=true" width="640" height="1374" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-        <button id="close-modal" class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full">
-            Cerrar
-        </button>
-    </div>
-</div>
+
 </body>
 </html>
